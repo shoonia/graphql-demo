@@ -1,9 +1,9 @@
 import gql from 'graphql-tag';
 
-export const fetchRates = currency => gql`
-{
-  rates(currency: "${currency}") {
-    currency
-    rate
+export const FETCH_RATES = gql`
+  query rates($currency: String!) {
+    rates(currency: $currency) {
+      currency
+      rate
   }
 }`;

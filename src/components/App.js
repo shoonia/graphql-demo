@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Query  } from 'react-apollo';
 
 import Table from './Table';
-import { fetchRates } from '../query/table';
+import { FETCH_RATES } from '../query/table';
 
 class App extends Component {
   state = {
@@ -39,9 +39,10 @@ class App extends Component {
 
   render() {
     const { currency } = this.state;
+    const variables = { currency };
 
     return (
-      <Query query={fetchRates(currency)}>
+      <Query variables={variables} query={FETCH_RATES}>
         {this.renderTable}
       </Query>
     );

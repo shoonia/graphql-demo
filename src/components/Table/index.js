@@ -3,8 +3,6 @@ import React from 'react';
 import css from './table.module.css';
 
 const Table = ({ rates, active, rowOnClick }) => {
-  const label = `Exchange Rate (${active})`;
-
   const rows = rates.map(({ currency, rate }) => (
     <tr key={currency}>
       <td data-currency={currency}>
@@ -17,9 +15,14 @@ const Table = ({ rates, active, rowOnClick }) => {
   return (
     <table className={css.table}>
       <caption className={css.title}>
-        {label}
+        {active}
       </caption>
-      <thead></thead>
+      <thead>
+        <tr>
+          <th>Currency</th>
+          <th>Rate</th>
+        </tr>
+      </thead>
       <tbody onClick={rowOnClick}>
         {rows}
       </tbody>
