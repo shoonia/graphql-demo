@@ -5,5 +5,6 @@ export const FETCH_RATES = gql`
     rates(currency: $currency) {
       currency
       rate
+    }
   }
-}`;
+`;
